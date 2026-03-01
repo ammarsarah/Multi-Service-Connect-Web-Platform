@@ -67,13 +67,11 @@ export default function LoginPage() {
           {...register('email')}
         />
 
-        <div>
+        <div style={{ position: 'relative' }}>
           <Input
             label="Password"
             type={showPassword ? 'text' : 'password'}
             placeholder="Your password"
-            icon={showPassword ? EyeOff : Eye}
-            iconPosition="right"
             required
             error={errors.password?.message}
             style={{ paddingRight: '40px' }}
@@ -83,10 +81,14 @@ export default function LoginPage() {
             type="button"
             onClick={() => setShowPassword(p => !p)}
             style={{
-              position: 'absolute', right: 0, background: 'none',
-              border: 'none', cursor: 'pointer', display: 'none',
+              position: 'absolute', right: '10px', top: '34px',
+              background: 'none', border: 'none', cursor: 'pointer',
+              display: 'flex', alignItems: 'center', color: '#64748b', padding: 0,
             }}
-          />
+            aria-label={showPassword ? 'Hide password' : 'Show password'}
+          >
+            {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
+          </button>
         </div>
 
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>

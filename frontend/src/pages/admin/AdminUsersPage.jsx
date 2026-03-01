@@ -25,8 +25,10 @@ export default function AdminUsersPage() {
       const { data } = await adminService.getUsers(params);
       setUsers(data.users || data.data || data);
       setTotal(data.total || 0);
-    } catch { /* silent */ }
-    finally { setLoading(false); }
+    } catch (err) {
+      const msg = err.response?.data?.message || 'Failed to load users';
+      toast.error(msg);
+    } finally { setLoading(false); }
   };
 
   useEffect(() => { load(); }, [search, roleFilter, page]);

@@ -7,7 +7,7 @@ const passwordSchema = Joi.string()
   .max(128)
   .pattern(/[A-Z]/, 'uppercase letter')
   .pattern(/[0-9]/, 'number')
-  .pattern(/[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]/, 'special character')
+  .pattern(/[!@#$%^&*()\-_+=[\]{};':"\\|,.<>/?]/, 'special character')
   .messages({
     'string.pattern.name': 'Password must contain at least one {#name}',
     'string.min': 'Password must be at least 8 characters',

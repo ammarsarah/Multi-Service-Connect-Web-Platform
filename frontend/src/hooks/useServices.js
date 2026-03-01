@@ -30,7 +30,7 @@ export function useServices(initialParams = {}) {
   }, [fetchServices]);
 
   const updateParams = useCallback((newParams) => {
-    setParams(prev => ({ ...prev, ...newParams, page: newParams.page || 1 }));
+    setParams(prev => ({ ...prev, ...newParams, page: newParams.page ?? 1 }));
   }, []);
 
   return { services, total, loading, error, params, updateParams, refetch: fetchServices };
